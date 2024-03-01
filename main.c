@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 13:53:45 by simarcha          #+#    #+#             */
-/*   Updated: 2024/02/29 18:28:45 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:04:42 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int main(int argc, char **argv)
 	t_list	*stack_a;
 	t_list	*stack_b;
 
+	manage_error(argc, argv);
 	stack_b = NULL;
 	stack_a = create_list(argc, argv);
 	printf("A	B\n");
@@ -53,7 +54,12 @@ int main(int argc, char **argv)
 	printf("-	-\n");
 	printf("nb:i	nb:i\n");
 
-	reverse_rotate(&stack_a);
+//	reverse_rotate(&stack_a);
+	swap(&stack_a);
+//	push_b(&stack_a, &stack_b);
+//	push_b(&stack_a, &stack_b);
+//	swap(&stack_b);
+//	reverse_rotate(&stack_b);
 
 	print_list(stack_a, stack_b);
 

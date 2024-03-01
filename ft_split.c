@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 14:06:14 by simarcha          #+#    #+#             */
-/*   Updated: 2024/02/26 14:11:42 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/01 17:46:40 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 //we need a function to free everything if it fails
 //we need a function to gather everything
 
-int	countwords(const char *s, char c)
+static int	countwords(const char *s, char c)
 {
 	int	wc;
 	int	i;
@@ -43,7 +43,7 @@ int	countwords(const char *s, char c)
 	return (wc);
 }
 
-char	**draw_array(char **array, const char *s, char c)
+static char	**draw_array(char **array, const char *s, char c)
 {
 	int		i;
 	int		x;
@@ -69,7 +69,7 @@ char	**draw_array(char **array, const char *s, char c)
 	return (array);
 }
 
-char	**complete_array(char **array, const char *s, char c)
+static char	**complete_array(char **array, const char *s, char c)
 {
 	int	i;
 	int	x;
@@ -94,7 +94,7 @@ char	**complete_array(char **array, const char *s, char c)
 	return (array);
 }
 
-char	**free_array(char **array)
+static char	**free_array(char **array)
 {
 	int	x;
 

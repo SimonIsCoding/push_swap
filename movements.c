@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 19:46:44 by simarcha          #+#    #+#             */
-/*   Updated: 2024/02/29 18:32:59 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/02/29 23:02:04 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	rotate(t_list **lst)
 
 	if (*lst == NULL || (*lst)->next == NULL)
 	{
-		write(1, "useless movement\n", 17);
+		write(1, "useless movement rotate\n", 23);
 		return ;
 	}
 	first = *lst;
@@ -77,7 +77,7 @@ void	rotate(t_list **lst)
 	last = ft_lstlast(*lst);
 
 	last->next = first;
-	first->prev = last;
+	first->prev = last;//repetition
 	first->next = NULL;
 	*lst = second;
 	first->index = ft_lstsize(*lst);
@@ -93,7 +93,7 @@ void	reverse_rotate(t_list **lst)
 
 	if (*lst == NULL || (*lst)->next == NULL)
 	{
-		write(1, "useless movement\n", 17);
+		write(1, "useless movement rr\n", 20);
 		return ;
 	}
 	last = ft_lstlast(*lst);
