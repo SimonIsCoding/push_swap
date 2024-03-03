@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:14:06 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/02 20:32:30 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/03 12:00:14 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct s_list
 //push_swap_utils
 size_t		ft_strlen(const char *str);
 long int	ft_atol(const char *str);
+char		**free_array(char **array);
+char		**ft_split(const char *s, char c);
 
 //list_utils
 t_list		*ft_lstnew(long int nb, int i);
@@ -69,7 +71,6 @@ void		is_a_number(int argc, char **argv);
 void		two_same_numbers(t_list *lst);
 int			sorted_check(t_list	*lst);
 t_list		*create_list_argc_is_2(char **argv);
-char		**ft_split(const char *s, char c);
 void		manage_error_argc_is_2(char **argv);
 void		check_if_int(t_list *lst);
 void		manage_error(int argc, char **argv);

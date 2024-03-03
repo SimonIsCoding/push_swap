@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 14:06:14 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/01 17:46:40 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/03 11:58:53 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static char	**complete_array(char **array, const char *s, char c)
 	return (array);
 }
 
-static char	**free_array(char **array)
+char	**free_array(char **array)
 {
 	int	x;
 

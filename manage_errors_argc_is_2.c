@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 20:30:37 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/03 11:34:50 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/03 12:23:21 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_list	*create_list_argc_is_2(char **argv)
 		ft_lstadd_back(&lst, new_node);
 		i++;
 	}
+	free_array(array);
 	return (lst);
 }
 
@@ -100,10 +101,8 @@ void	manage_error_argc_is_2(char **argv)
 	sorted_check(stack_a);
 	if (sorted_check(stack_a) == 1)
 	{
-		//we have to free the list here
-		ft_lstclear(&stack_a);
-//		write(1, "numbers are sorted\n", 19);
+//		ft_lstclear(&stack_a);
 		exit(0);
 	}
-	
+	ft_lstclear(&stack_a);
 }
