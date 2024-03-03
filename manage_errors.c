@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 20:02:32 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/01 18:12:33 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/02 15:25:32 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	is_a_number(int argc, char **argv)
 		j = 0;
 		while (argv[i][j] != '\0')
 		{
-			if (ft_isdigit((int)argv[i][j]) == 0)
+			if (ft_isdigit((int)argv[i][j]) == 0 && argv[i][j] != '-')
 			{
 				return (write_error(), exit(1));
 			}

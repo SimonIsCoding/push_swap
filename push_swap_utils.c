@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:47:44 by simarcha          #+#    #+#             */
-/*   Updated: 2024/02/25 19:58:17 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/02 19:26:31 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
-	 i = 0;
-	 while (s[i] != '\0')
-		 i++;
-	 return (i);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
 
 long int	ft_atol(const char *str)
@@ -42,19 +42,4 @@ long int	ft_atol(const char *str)
 	while (str[i] >= 48 && str[i] <= 57)
 		a = a * 10 + (str[i++] - 48);
 	return (a * sign);
-}
-
-char	*ft_strdup(const char *str)
-{
-	char	*dst;
-	size_t	i;
-
-	i = -1;
-	dst = malloc(ft_strlen(str) * sizeof(char) + 1);
-	if (!dst)
-		return (NULL);
-	while (str[++i] != '\0')
-		dst[i] = str[i];
-	dst[i] = '\0';
-	return (dst);
 }

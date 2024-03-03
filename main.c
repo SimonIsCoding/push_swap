@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 13:53:45 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/01 18:04:42 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/02 19:38:12 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 //we want a function to convert the args passed by the user into nodes
 //then we will create a list with these numbers
-
 t_list	*create_list(int argc, char **argv)
 {
-	t_list	*lst;
-	int		i;
-	int		nb;
-	t_list	*new_node;
+	t_list			*lst;
+	int				i;
+	long int		nb;
+	t_list			*new_node;
 
 	i = 1;
 	lst = NULL;
@@ -43,28 +42,76 @@ int main(int argc, char **argv)
 
 	manage_error(argc, argv);
 	stack_b = NULL;
-	stack_a = create_list(argc, argv);
-	printf("A	B\n");
-	printf("-	-\n");
-	printf("nb:i	nb:i\n");
+	if (argc == 2)
+		stack_a = create_list_argc_is_2(argv);
+	else
+		stack_a = create_list(argc, argv);
+
+	printf("the min of the stack a is: (%li:%u)\n", min_list(&stack_a)->nb, min_list(&stack_a)->index);
+	printf("the max of the stack a is: (%li:%u)\n", max_list(&stack_a)->nb, max_list(&stack_a)->index);
+	printf("-------------       -------------\n");
+	printf("|  STACK A  |       |  STACK B  |\n");
+	printf("-------------	    -------------\n");
+	printf("  nb : index         nb : index\n");
+	print_list(stack_a, stack_b);
+	printf("\n");
+	printf("-------------\n");
+
+	if (ft_lstsize(stack_a) == 2)
+		sort_2_numbers(&stack_a);
+	else if (ft_lstsize(stack_a) == 3)
+		sort_3_numbers(&stack_a);
+/*	else if (ft_lstsize(stack_a) == 4)
+		sort_4_numbers(&stack_a);
+
+	else
+		sort(&stack_a);
+*/
+	printf("-------------\n");
+	printf("\n");
+	printf("-------------       -------------\n");
+	printf("|  STACK A  |       |  STACK B  |\n");
+	printf("-------------	    -------------\n");
+	printf("  nb : index         nb : index\n");
 	print_list(stack_a, stack_b);
 
-	printf("---------\n");
-	printf("A	B\n");
-	printf("-	-\n");
-	printf("nb:i	nb:i\n");
 
-//	reverse_rotate(&stack_a);
-	swap(&stack_a);
+//	reverse_rotate_a(&stack_a);
+//	swap_a(&stack_a);
 //	push_b(&stack_a, &stack_b);
 //	push_b(&stack_a, &stack_b);
-//	swap(&stack_b);
-//	reverse_rotate(&stack_b);
-
-	print_list(stack_a, stack_b);
+//	swap_b(&stack_b);
+//	rotate_a_and_b(&stack_a, &stack_b);
+//	swap_a_and_b(&stack_a, &stack_b);
+//	swap_b(&stack_b);
+//	reverse_rotate_b(&stack_b);
+//	reverse_rotate_a(&stack_a);
+//	reverse_rotate_a_and_b(&stack_a, &stack_b);
+//	rotate_b(&stack_b);
+//	rotate_b(&stack_b);
+//	rotate_a(&stack_a);
+//	rotate_a_and_b(&stack_a, &stack_b);
+//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION
+//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION
+//	reverse_rotate_a(&stack_a);
+//	swap_a(&stack_a);
+//	push_b(&stack_a, &stack_b);
+//	push_b(&stack_a, &stack_b);
+//	swap_b(&stack_b);
+//	rotate_a_and_b(&stack_a, &stack_b);
+//	swap_a_and_b(&stack_a, &stack_b);
+//	swap_b(&stack_b);
+//	reverse_rotate_b(&stack_b);
+//	reverse_rotate_a(&stack_a);
+//	reverse_rotate_a_and_b(&stack_a, &stack_b);
+//	rotate_b(&stack_b);
+//	rotate_b(&stack_b);
+//	rotate_a(&stack_a);
+//	rotate_a_and_b(&stack_a, &stack_b);
+//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION
+//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION
 
 	ft_lstclear(&stack_a);
-	ft_lstclear(&stack_b);
 	return (0);
 }
 
@@ -75,55 +122,3 @@ int main(int argc, char **argv)
         free(temp);
     }
 */
-
-/*void	push_b(t_list **stack_a, t_list **stack_b)
-{
-	t_list	*first_a;
-	t_list	*second_a;
-	t_list	*first_b;
-	t_list	*tmp;
-
-//	write(1, "Entered push_b_begin\n", 21);
-//	printf("Entered push_b\n");	
-	if (*stack_a == NULL) 
-	{
-		write(1, "useless movement\n", 17);
-		return ;
-	}
-	first_a = *stack_a;
-	first_a->prev = NULL;
-	first_a->next = (*stack_a)->next;
-	if ((*stack_a)->next)
-	{
-		second_a = (*stack_a)->next;
-		second_a->prev = (*stack_a)->prev;
-
-
-		*stack_a = second_a;
-		second_a->prev = NULL;
-
-		tmp = *stack_a;
-		while (tmp != NULL)
-		{
-			tmp->index--;
-			tmp = tmp->next;
-		}
-	}
-	else
-		*stack_a = NULL;
-	first_b = first_a;
-	first_b->prev = NULL;
-	first_b->next = *stack_b;
-	*stack_b = first_b;
-//	first_b->next = (*stack_b)->next;//repetition ?
-//	if ((*stack_b)->next)
-//	{
-//	write(1, "Entered if\n", 8);
-		tmp = (*stack_b)->next;
-		while (tmp != NULL)
-		{
-			tmp->index++;
-			tmp = tmp->next;
-		}
-//	}
-}*/
