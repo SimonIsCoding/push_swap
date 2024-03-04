@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:16:33 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/02 19:30:43 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/04 19:08:19 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ t_list	*ft_lstnew(long int nb, int i)
 		return (NULL);
 	node->nb = nb;
 	node->index = i;
+//	node->push_cost = 0;
+	node->target = NULL;
 	node->prev = NULL;
 	node->next = NULL;
 	return (node);
@@ -73,34 +75,26 @@ void ft_lstclear(t_list **lst)
 	lst = NULL;
 }
 
-#include <stdio.h>//WATCH OUT YOU USE A FORBIDDEN FUNCTION
-void print_list(t_list *stack_a, t_list *stack_b)
+t_list	*ft_lstlast(t_list *lst)
 {
-    while (stack_a != NULL || stack_b != NULL)
+	t_list	*tmp;
+
+	tmp = lst;
+	if (lst)
 	{
-//		printf("Entered in while\n");
-		if (stack_b && stack_a)
-		{
-//			write(1, "Entered in stack_a && stack_b\n", 31);
-//			printf("(%li:%u)	(%li:%u)\n", stack_a->nb, stack_a->index, stack_b->nb, stack_b->index);//WATCH OUT YOU USE A FORBIDDEN FUNCTION
-			printf("| %li  :  %u |     | %li  :  %u |\n", stack_a->nb, stack_a->index, stack_b->nb, stack_b->index);//WATCH OUT YOU USE A FORBIDDEN FUNCTION
-			stack_a = stack_a->next;
-			stack_b = stack_b->next;
-		}
-		else if (stack_a)
-		{
-//			write(1, "Entered in stack_a\n", 19); 
-//			printf("(%li:%u)\n", stack_a->nb, stack_a->index);//WATCH OUT YOU USE A FORBIDDEN FUNCTION
-			printf("| %li  :  %u |\n", stack_a->nb, stack_a->index);//WATCH OUT YOU USE A FORBIDDEN FUNCTION
-			stack_a = stack_a->next;
-		}
-		else if (stack_b)
-		{
-			//printf("Entered in stack_b"); 
-//			write(1, "Entered in stack_b\n", 19); 
-//			printf(" 	(%li:%u)\n", stack_b->nb, stack_b->index);//WATCH OUT YOU USE A FORBIDDEN FUNCTION
-			printf("                | %li  :  %u |\n", stack_b->nb, stack_b->index);//WATCH OUT YOU USE A FORBIDDEN FUNCTION
-			stack_b = stack_b->next;
-		}
-    }
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		return (tmp);
+	}
+	return (NULL);
+}//for this programm, I used a tmp, because it doesnt change the value of lst
+
+t_list	*ft_lstbegin(t_list *lst)
+{
+	if (lst)
+	{
+		while (lst->prev)
+			lst = lst->prev;
+	}
+	return (lst);
 }

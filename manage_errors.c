@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 20:02:32 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/02 15:25:32 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/03 13:02:01 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	sorted_check(t_list	*lst)
 	tmp = lst;
 	while (tmp != NULL && tmp->next != NULL)
 	{
-		if (tmp->next->nb < tmp->nb)
+		if (tmp->nb > tmp->next->nb)
 			return (0);
 		tmp = tmp->next;
 	}

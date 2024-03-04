@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:14:06 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/03 12:00:14 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/04 21:29:48 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct s_list
 {
 	long int		nb;	
 	unsigned int	index;
+//	int				push_cost;
+	struct s_list	*target;
 	struct s_list	*next;
 	struct s_list	*prev;
 }					t_list;
@@ -39,12 +41,19 @@ int			ft_lstsize(t_list *lst);
 void		print_list(t_list *stack_a, t_list *stack_b);//TO REMOVE BEFORE PUSHING
 void		ft_lstclear(t_list **lst);
 t_list		*ft_lstlast(t_list *lst);
+t_list		*ft_lstbegin(t_list *lst);
 t_list		*create_list(int argc, char **argv);
 
-//Sorting
-void		sort_2_numbers(t_list **lst);
-void		sort_3_numbers(t_list **lst);
-//void		sort_4_numbers(t_list **lst);
+//Error Management
+int			write_error(void);
+int			ft_isdigit(int c);
+void		is_a_number(int argc, char **argv);
+void		two_same_numbers(t_list *lst);
+int			sorted_check(t_list	*lst);
+t_list		*create_list_argc_is_2(char **argv);
+void		manage_error_argc_is_2(char **argv);
+void		check_if_int(t_list *lst);
+void		manage_error(int argc, char **argv);
 
 //Movements
 void		swap(t_list **lst);
@@ -64,20 +73,18 @@ void		reverse_rotate_a_and_b(t_list **stack_a, t_list **stack_b);
 void		push_a(t_list **stack_b, t_list **stack_a);
 void		push_b(t_list **stack_a, t_list **stack_b);
 
-//Error Management
-int			write_error(void);
-int			ft_isdigit(int c);
-void		is_a_number(int argc, char **argv);
-void		two_same_numbers(t_list *lst);
-int			sorted_check(t_list	*lst);
-t_list		*create_list_argc_is_2(char **argv);
-void		manage_error_argc_is_2(char **argv);
-void		check_if_int(t_list *lst);
-void		manage_error(int argc, char **argv);
-
 //find min & max
 t_list		*min_list(t_list **lst);
 t_list		*max_list(t_list **lst);
 int			check_min_and_max_position(t_list *lst);
+
+//Sorting
+void		sort_2_numbers(t_list **lst);
+void		sort_3_numbers(t_list **lst);
+//void		sort_4_numbers(t_list **lst);
+
+//algorithm
+void	find_target_node_a(t_list *stack_a, t_list *stack_b);
+void	find_target_node_b(t_list *stack_b, t_list *stack_a);
 
 #endif

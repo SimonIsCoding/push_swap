@@ -6,7 +6,7 @@
 #    By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 19:24:58 by simarcha          #+#    #+#              #
-#    Updated: 2024/03/02 15:49:31 by simarcha         ###   ########.fr        #
+#    Updated: 2024/03/04 13:10:16 by simarcha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ CFLAGS		= -Wall -Wextra -Werror
 
 SRCS		= main.c \
 		  	list_utils.c \
-			list_utils_2.c \
 			manage_errors.c \
 			manage_errors2.c \
 			push_swap_utils.c \
@@ -24,7 +23,8 @@ SRCS		= main.c \
 			movement_rotate.c \
 			movement_reverse_rotate.c \
 			movement_push.c \
-			min_max.c
+			min_max.c \
+			algorithm.c
 
 INCLUDE		= push_swap.h
 

@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 13:53:45 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/02 19:38:12 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/04 21:45:20 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,51 @@ int main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
+	t_list	*tmp_a;
+	t_list	*tmp_b;
+	int		i;
 
+	i = 0;
 	manage_error(argc, argv);
 	stack_b = NULL;
+//	if (argc < 2)
+//		return (1);
 	if (argc == 2)
 		stack_a = create_list_argc_is_2(argv);
 	else
 		stack_a = create_list(argc, argv);
+	if (ft_lstsize(stack_a) == 2)
+		sort_2_numbers(&stack_a);
+	else if (ft_lstsize(stack_a) == 3)
+		sort_3_numbers(&stack_a);
+	else
+	{
+		push_b(&stack_a, &stack_b);
+		push_b(&stack_a, &stack_b);
+		push_b(&stack_a, &stack_b);
+		tmp_a = stack_a;
+		tmp_b = stack_b;
+		find_target_node_a(stack_a, stack_b);
+		stack_a = tmp_a;
+		stack_b = tmp_b;
+		find_target_node_b(stack_b, stack_a);
 
-	printf("the min of the stack a is: (%li:%u)\n", min_list(&stack_a)->nb, min_list(&stack_a)->index);
+		print_list(stack_a, stack_b);
+	}
+	while (stack_a)
+	{
+		printf("stack_a: node_%i->target->nb: %li\n", i++, stack_a->target->nb);
+		stack_a = stack_a->next;
+	}
+	i = 0;
+	while (stack_b)
+	{
+		printf("stack_b: node_%i->target->nb: %li\n", i++, stack_b->target->nb);
+		stack_b = stack_b->next;
+	}
+
+
+/*	printf("the min of the stack a is: (%li:%u)\n", min_list(&stack_a)->nb, min_list(&stack_a)->index);
 	printf("the max of the stack a is: (%li:%u)\n", max_list(&stack_a)->nb, max_list(&stack_a)->index);
 	printf("-------------       -------------\n");
 	printf("|  STACK A  |       |  STACK B  |\n");
@@ -57,68 +93,51 @@ int main(int argc, char **argv)
 	printf("\n");
 	printf("-------------\n");
 
-	if (ft_lstsize(stack_a) == 2)
-		sort_2_numbers(&stack_a);
-	else if (ft_lstsize(stack_a) == 3)
-		sort_3_numbers(&stack_a);
-/*	else if (ft_lstsize(stack_a) == 4)
-		sort_4_numbers(&stack_a);
 
-	else
-		sort(&stack_a);
-*/
+
 	printf("-------------\n");
 	printf("\n");
 	printf("-------------       -------------\n");
 	printf("|  STACK A  |       |  STACK B  |\n");
 	printf("-------------	    -------------\n");
 	printf("  nb : index         nb : index\n");
-	print_list(stack_a, stack_b);
-
-
-//	reverse_rotate_a(&stack_a);
-//	swap_a(&stack_a);
-//	push_b(&stack_a, &stack_b);
-//	push_b(&stack_a, &stack_b);
-//	swap_b(&stack_b);
-//	rotate_a_and_b(&stack_a, &stack_b);
-//	swap_a_and_b(&stack_a, &stack_b);
-//	swap_b(&stack_b);
-//	reverse_rotate_b(&stack_b);
-//	reverse_rotate_a(&stack_a);
-//	reverse_rotate_a_and_b(&stack_a, &stack_b);
-//	rotate_b(&stack_b);
-//	rotate_b(&stack_b);
-//	rotate_a(&stack_a);
-//	rotate_a_and_b(&stack_a, &stack_b);
-//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION
-//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION
-//	reverse_rotate_a(&stack_a);
-//	swap_a(&stack_a);
-//	push_b(&stack_a, &stack_b);
-//	push_b(&stack_a, &stack_b);
-//	swap_b(&stack_b);
-//	rotate_a_and_b(&stack_a, &stack_b);
-//	swap_a_and_b(&stack_a, &stack_b);
-//	swap_b(&stack_b);
-//	reverse_rotate_b(&stack_b);
-//	reverse_rotate_a(&stack_a);
-//	reverse_rotate_a_and_b(&stack_a, &stack_b);
-//	rotate_b(&stack_b);
-//	rotate_b(&stack_b);
-//	rotate_a(&stack_a);
-//	rotate_a_and_b(&stack_a, &stack_b);
-//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION
-//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION
+	print_list(stack_a, stack_b);*/
 
 	ft_lstclear(&stack_a);
 	return (0);
 }
 
-/*    // Libération de la mémoire allouée pour la liste
-    while (head != NULL) {
-        t_list *temp = head;
-        head = head->next;
-        free(temp);
-    }
-*/
+
+
+//	reverse_rotate_a(&stack_a);
+//	swap_a(&stack_a);
+//	push_b(&stack_a, &stack_b);
+//	swap_b(&stack_b);
+//	rotate_a_and_b(&stack_a, &stack_b);
+//	swap_a_and_b(&stack_a, &stack_b);
+//	swap_b(&stack_b);
+//	reverse_rotate_b(&stack_b);
+//	reverse_rotate_a(&stack_a);
+//	reverse_rotate_a_and_b(&stack_a, &stack_b);
+//	rotate_b(&stack_b);
+//	rotate_b(&stack_b);
+//	rotate_a(&stack_a);
+//	rotate_a_and_b(&stack_a, &stack_b);
+//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION
+//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION
+//	reverse_rotate_a(&stack_a);
+//	swap_a(&stack_a);
+//	push_b(&stack_a, &stack_b);
+//	swap_b(&stack_b);
+//	rotate_a_and_b(&stack_a, &stack_b);
+//	swap_a_and_b(&stack_a, &stack_b);
+//	swap_b(&stack_b);
+//	reverse_rotate_b(&stack_b);
+//	reverse_rotate_a(&stack_a);
+//	reverse_rotate_a_and_b(&stack_a, &stack_b);
+//	rotate_b(&stack_b);
+//	rotate_b(&stack_b);
+//	rotate_a(&stack_a);
+//	rotate_a_and_b(&stack_a, &stack_b);
+//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION
+//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION

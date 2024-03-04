@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 20:30:37 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/03 12:23:21 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/03 12:31:34 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	manage_error_argc_is_2(char **argv)
 		return (exit(1));
 	two_same_numbers(stack_a);
 	check_if_int(stack_a);
-	sorted_check(stack_a);
+//	sorted_check(stack_a);
 	if (sorted_check(stack_a) == 1)
 	{
 //		ft_lstclear(&stack_a);

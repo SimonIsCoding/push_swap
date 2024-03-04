@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:42:20 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/03 12:25:43 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/03 12:30:21 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	manage_error(int argc, char **argv)
 		exit(1);
 	two_same_numbers(stack_a);
 	check_if_int(stack_a);
-	sorted_check(stack_a);
+//	sorted_check(stack_a);
 	if (sorted_check(stack_a) == 1)
 	{
 		//I don't understand why I don't have leaks here. I should have it
