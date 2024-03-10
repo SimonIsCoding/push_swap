@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 13:18:00 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/02 13:41:32 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:28:19 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ void	push_a(t_list **stack_b, t_list **stack_a)
 	first_a->next = *stack_a;
 	*stack_a = first_a;
 	increment_index(*stack_a);
-	write(1, "pa\n", 3);
+	if(write(1, "pa\n", 3) == -1)
+		exit(1);
 }
 
 //we put the first element of the stack A at the top of the stack B 
@@ -87,5 +88,6 @@ void	push_b(t_list **stack_a, t_list **stack_b)
 	first_b->next = *stack_b;
 	*stack_b = first_b;
 	increment_index(*stack_b);
-	write(1, "pb\n", 3);
+	if(write(1, "pb\n", 3) == -1)
+		exit(1);
 }

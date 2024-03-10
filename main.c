@@ -6,11 +6,13 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 13:53:45 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/04 21:45:20 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/10 20:38:41 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void imprimerNumeros(int liste1[], int liste2[], int taille); 
 
 //we want a function to convert the args passed by the user into nodes
 //then we will create a list with these numbers
@@ -39,9 +41,11 @@ int main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	t_list	*tmp_a;
-	t_list	*tmp_b;
+//	t_list	*tmp_a;
+//	t_list	*tmp_b;
 	int		i;
+//	t_list	*min_pc;
+//	int		median;
 
 	i = 0;
 	manage_error(argc, argv);
@@ -58,86 +62,76 @@ int main(int argc, char **argv)
 		sort_3_numbers(&stack_a);
 	else
 	{
-		push_b(&stack_a, &stack_b);
-		push_b(&stack_a, &stack_b);
-		push_b(&stack_a, &stack_b);
-		tmp_a = stack_a;
-		tmp_b = stack_b;
-		find_target_node_a(stack_a, stack_b);
-		stack_a = tmp_a;
-		stack_b = tmp_b;
-		find_target_node_b(stack_b, stack_a);
+//		swap_first_last(&stack_a);
+//		the_reverse_rotate(stack_a);
+//		push_b(&stack_a, &stack_b);
+//		push_b(&stack_a, &stack_b);
+//		push_b(&stack_a, &stack_b);
+//		push_b(&stack_a, &stack_b);
+//		push_b(&stack_a, &stack_b);
+//		push_b(&stack_a, &stack_b);
+//		tmp_a = stack_a;
+//		tmp_b = stack_b;
+//		algorithm(&stack_a, &stack_b);
+//		move_the_closest_smaller(stack_a, stack_b);
+//		find_target_node_a(stack_a, stack_b);
+//		find_target_node_b(stack_b, stack_a);
+//		rate_single_cost(stack_a);
+//		rate_single_cost(stack_b);
+//		push_cost_total(stack_a);
+//		push_cost_total(stack_b);
+//		min_pc = min_push_cost(&stack_a);
+//		median = calculate_median(stack_a);	
+//		median = find_median(&stack_a);
+//		printf("median : %i\n", median);
 
-		print_list(stack_a, stack_b);
+		char **array = array_numbers(stack_a);
+		int	x = 0;
+		while (array[x])	
+		{
+			printf("%s\n", array[x]);
+			x++;
+		}
+		printf("min = %i\n", find_min(array));
+		printf("median = %i\n", find_the_median(array, ft_lstsize(stack_a), 0));
+		free_array(array);
+		printf("move node in B\n");
+		move_node_in_B(&stack_a, &stack_b);
 	}
-	while (stack_a)
+ 
+	printf("lstsize of stack A = %i\n", ft_lstsize(stack_a));
+	printf("lstsize of stack B = %i\n", ft_lstsize(stack_b));
+	printf("the min of the stack a is: (%li:%u)\n", min_list_nb(&stack_a)->nb, min_list_nb(&stack_a)->index);
+	printf("the max of the stack a is: (%li:%u)\n", max_list_nb(&stack_a)->nb, max_list_nb(&stack_a)->index);
+//	printf("the min of the stack b is: (%li:%u)\n", min_list_nb(&stack_b)->nb, min_list_nb(&stack_b)->index);
+//	printf("the max of the stack b is: (%li:%u)\n", max_list_nb(&stack_b)->nb, max_list_nb(&stack_b)->index);
+
+	printf("-------------       -------------\n");
+	printf("|  STACK A  |       |  STACK B  |\n");
+	printf("-------------	    -------------\n");
+	printf("  nb  :index          nb  :index\n");
+	print_list(stack_a, stack_b);
+
+//	printf("------------------------------\n");
+//	printf("current_node is : (%li,%i)\n", stack_a->nb, stack_a->index);
+/*	while (stack_a)
 	{
-		printf("stack_a: node_%i->target->nb: %li\n", i++, stack_a->target->nb);
+		printf("stack_a: node_%i->target->nb: %li && single_cost : %i\n", i, stack_a->target->nb, stack_a->single_cost);
+		printf("stack_a: nb %li && push_cost : %i\n", stack_a->nb, stack_a->push_cost);
+		printf("------\n");
 		stack_a = stack_a->next;
+		i++;
 	}
 	i = 0;
 	while (stack_b)
 	{
-		printf("stack_b: node_%i->target->nb: %li\n", i++, stack_b->target->nb);
+		printf("stack_b: node_%i->target->nb: %li && single_cost : %i\n", i, stack_b->target->nb, stack_b->single_cost);
+		printf("stack_b: nb %li && push_cost : %i\n", stack_b->nb, stack_b->push_cost);
+		printf("------\n");
 		stack_b = stack_b->next;
+		i++;
 	}
-
-
-/*	printf("the min of the stack a is: (%li:%u)\n", min_list(&stack_a)->nb, min_list(&stack_a)->index);
-	printf("the max of the stack a is: (%li:%u)\n", max_list(&stack_a)->nb, max_list(&stack_a)->index);
-	printf("-------------       -------------\n");
-	printf("|  STACK A  |       |  STACK B  |\n");
-	printf("-------------	    -------------\n");
-	printf("  nb : index         nb : index\n");
-	print_list(stack_a, stack_b);
-	printf("\n");
-	printf("-------------\n");
-
-
-
-	printf("-------------\n");
-	printf("\n");
-	printf("-------------       -------------\n");
-	printf("|  STACK A  |       |  STACK B  |\n");
-	printf("-------------	    -------------\n");
-	printf("  nb : index         nb : index\n");
-	print_list(stack_a, stack_b);*/
-
+	printf("minimal push_cost for stack a: %i\n", min_pc->push_cost);*/
 	ft_lstclear(&stack_a);
-	return (0);
+	ft_lstclear(&stack_b);
 }
-
-
-
-//	reverse_rotate_a(&stack_a);
-//	swap_a(&stack_a);
-//	push_b(&stack_a, &stack_b);
-//	swap_b(&stack_b);
-//	rotate_a_and_b(&stack_a, &stack_b);
-//	swap_a_and_b(&stack_a, &stack_b);
-//	swap_b(&stack_b);
-//	reverse_rotate_b(&stack_b);
-//	reverse_rotate_a(&stack_a);
-//	reverse_rotate_a_and_b(&stack_a, &stack_b);
-//	rotate_b(&stack_b);
-//	rotate_b(&stack_b);
-//	rotate_a(&stack_a);
-//	rotate_a_and_b(&stack_a, &stack_b);
-//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION
-//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION
-//	reverse_rotate_a(&stack_a);
-//	swap_a(&stack_a);
-//	push_b(&stack_a, &stack_b);
-//	swap_b(&stack_b);
-//	rotate_a_and_b(&stack_a, &stack_b);
-//	swap_a_and_b(&stack_a, &stack_b);
-//	swap_b(&stack_b);
-//	reverse_rotate_b(&stack_b);
-//	reverse_rotate_a(&stack_a);
-//	reverse_rotate_a_and_b(&stack_a, &stack_b);
-//	rotate_b(&stack_b);
-//	rotate_b(&stack_b);
-//	rotate_a(&stack_a);
-//	rotate_a_and_b(&stack_a, &stack_b);
-//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION
-//	push_a(&stack_b, &stack_a);//WATCH OUT: THIS IS FROM B TO A => THE ORDER OF THE ARGUMENT MATTERS USING THIS FUNTCION

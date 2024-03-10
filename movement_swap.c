@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 13:30:06 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/02 19:26:59 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:27:22 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void	swap_a(t_list **stack_a)
 		return ;
 	}
 	swap(stack_a);
-	write(1, "sa\n", 3);
+	if (write(1, "sa\n", 3) == -1)
+		exit(1);
 }
 
 void	swap_b(t_list **stack_b)
@@ -55,7 +56,8 @@ void	swap_b(t_list **stack_b)
 		return ;
 	}
 	swap(stack_b);
-	write(1, "sb\n", 3);
+	if (write(1, "sb\n", 3) == -1)
+		exit(1);
 }
 
 //exchange the firsts two elements for both stacks
@@ -69,5 +71,6 @@ void	swap_a_and_b(t_list **stack_a, t_list **stack_b)
 	}
 	swap(stack_a);
 	swap(stack_b);
-	write(1, "ss\n", 3);
+	if (write(1, "ss\n", 3) == -1)
+		exit(1);
 }

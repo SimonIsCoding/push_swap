@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:16:33 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/04 19:08:19 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/05 19:22:03 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_list	*ft_lstnew(long int nb, int i)
 		return (NULL);
 	node->nb = nb;
 	node->index = i;
-//	node->push_cost = 0;
+	node->push_cost = 0;
 	node->target = NULL;
 	node->prev = NULL;
 	node->next = NULL;
@@ -77,17 +77,14 @@ void ft_lstclear(t_list **lst)
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*tmp;
-
-	tmp = lst;
 	if (lst)
 	{
-		while (tmp->next != NULL)
-			tmp = tmp->next;
-		return (tmp);
+		while (lst->next != NULL)
+			lst = lst->next;
+		return (lst);
 	}
 	return (NULL);
-}//for this programm, I used a tmp, because it doesnt change the value of lst
+}
 
 t_list	*ft_lstbegin(t_list *lst)
 {
@@ -95,6 +92,7 @@ t_list	*ft_lstbegin(t_list *lst)
 	{
 		while (lst->prev)
 			lst = lst->prev;
+		return (lst);
 	}
-	return (lst);
+	return (NULL);
 }

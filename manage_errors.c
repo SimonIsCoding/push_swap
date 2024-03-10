@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 20:02:32 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/03 13:02:01 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/05 17:25:13 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	write_error(void)
 {
-	return (write(1, "Error\n", 6));//WATCH OUT IF YOUR WRITE FAILS
+	if (write(1, "Error\n", 6) == -1)
+		return (exit(1), -1);
+	return (6);
 }
 
 int	ft_isdigit(int c)

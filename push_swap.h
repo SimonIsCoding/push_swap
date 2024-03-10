@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:14:06 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/04 21:29:48 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:11:12 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 typedef struct s_list
 {
 	long int		nb;	
-	unsigned int	index;
-//	int				push_cost;
+	int				index;
+	int				push_cost;
 	struct s_list	*target;
 	struct s_list	*next;
 	struct s_list	*prev;
@@ -81,10 +81,14 @@ int			check_min_and_max_position(t_list *lst);
 //Sorting
 void		sort_2_numbers(t_list **lst);
 void		sort_3_numbers(t_list **lst);
-//void		sort_4_numbers(t_list **lst);
 
-//algorithm
-void	find_target_node_a(t_list *stack_a, t_list *stack_b);
-void	find_target_node_b(t_list *stack_b, t_list *stack_a);
+//algorithm_utils
+void		find_target_node_a(t_list *stack_a, t_list *stack_b);
+void		find_target_node_b(t_list *stack_b, t_list *stack_a);
+int			rate_mvt_rrb(t_list *stack_b, t_list *stack_a);
+void		rate_push_cost(t_list *stack);
+//int			push_cost_total(t_list *node);
+void		push_cost_total(t_list *node);
+void		set_push_cost(t_list *stack);
 
 #endif

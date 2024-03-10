@@ -6,7 +6,7 @@
 #    By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 19:24:58 by simarcha          #+#    #+#              #
-#    Updated: 2024/03/04 13:10:16 by simarcha         ###   ########.fr        #
+#    Updated: 2024/03/05 18:53:11 by simarcha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS		= main.c \
 			movement_reverse_rotate.c \
 			movement_push.c \
 			min_max.c \
-			algorithm.c
+			algorithm_utils.c
 
 INCLUDE		= push_swap.h
 
