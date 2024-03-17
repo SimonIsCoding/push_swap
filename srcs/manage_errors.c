@@ -6,15 +6,15 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 20:02:32 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/05 17:25:13 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/13 20:08:12 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 int	write_error(void)
 {
-	if (write(1, "Error\n", 6) == -1)
+	if (write(2, "Error\n", 6) == -1)
 		return (exit(1), -1);
 	return (6);
 }
@@ -39,9 +39,14 @@ void	is_a_number(int argc, char **argv)
 		while (argv[i][j] != '\0')
 		{
 			if (ft_isdigit((int)argv[i][j]) == 0 && argv[i][j] != '-')
-			{
 				return (write_error(), exit(1));
-			}
+			if ((size_t)j < ft_strlen(argv[i]) - 2 && argv[i][j] == '-'
+				&& ft_isdigit((int)argv[i][j + 1]) == 0)
+				return (write_error(), exit(1));
+			if ((size_t)j == ft_strlen(argv[i]) - 1 && argv[i][j] == '-')
+				return (write_error(), exit(1));
+			if (j > 0 && argv[i][j] == '-' && argv[i][j - 1] != ' ')
+				return (write_error(), exit(1));
 			j++;
 		}
 		i++;

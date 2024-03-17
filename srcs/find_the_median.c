@@ -6,71 +6,11 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 17:23:33 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/10 20:44:30 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/17 19:49:09 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-static char	*ft_strdup(const char *str)
-{
-	char	*dst;
-	size_t	i;
-
-	i = -1;
-	dst = (char *)malloc((ft_strlen(str) + 1) * sizeof(char));
-	if (!dst)
-		return (NULL);
-	while (str[++i] != '\0')
-		dst[i] = str[i];
-	dst[i] = '\0';
-	return (dst);
-}
-
-static size_t	ft_ctr(long num)
-{
-	size_t	ctr;
-
-	ctr = 0;
-	while (num < 0)
-	{
-		num *= -1;
-		ctr++;
-	}
-	while (num > 0)
-	{
-		num /= 10;
-		ctr++;
-	}
-	return (ctr);
-}
-
-static char	*ft_itoa(long int n)
-{
-	char	*str;
-	long	tmp;
-	size_t	len;
-
-	tmp = n;
-	len = ft_ctr(tmp);
-	if (n == 0)
-		return (ft_strdup("0"));
-	str = malloc((len + 1) * (sizeof(char)));
-	if (!str)
-		return (NULL);
-	str[len--] = '\0';
-	if (tmp < 0)
-	{
-		tmp *= -1;
-		str[0] = '-';
-	}
-	while (tmp > 0)
-	{
-		str[len--] = (tmp % 10) + '0';
-		tmp /= 10;
-	}
-	return (str);
-}
+#include "../inc/push_swap.h"
 
 char	**array_numbers(t_list *stack_a)
 {
@@ -118,7 +58,7 @@ static int	ft_atoi(const char *str)
 }
 
 //create a function to find the lower value of your array of numbers
-int	find_min(char **array)
+static int	find_min(char **array)
 {
 	int	x;
 	int	min;
@@ -166,4 +106,4 @@ int	find_the_median(char **array, int lstsize, int median)
 		}
 	}
 	return (tmp);
-}//do not forget to free the array fight after having using it.
+}

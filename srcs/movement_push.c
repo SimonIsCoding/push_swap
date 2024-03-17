@@ -6,11 +6,11 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 13:18:00 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/05 16:28:19 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:16:42 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 void	increment_index(t_list *stack)
 {
@@ -44,10 +44,7 @@ void	push_a(t_list **stack_b, t_list **stack_a)
 	t_list	*first_a;
 
 	if (*stack_b == NULL)
-	{
-		write(1, "useless movement push A\n", 24);//TO REMOVE BEFORE PUSHING
 		return ;
-	}
 	first_b = *stack_b;
 	if ((*stack_b)->next)
 	{
@@ -60,7 +57,7 @@ void	push_a(t_list **stack_b, t_list **stack_a)
 	first_a->next = *stack_a;
 	*stack_a = first_a;
 	increment_index(*stack_a);
-	if(write(1, "pa\n", 3) == -1)
+	if (write(1, "pa\n", 3) == -1)
 		exit(1);
 }
 
@@ -72,10 +69,7 @@ void	push_b(t_list **stack_a, t_list **stack_b)
 	t_list	*first_b;
 
 	if (*stack_a == NULL)
-	{
-		write(1, "useless movement push B\n", 24);//TO REMOVE BEFORE PUSHING
 		return ;
-	}
 	first_a = *stack_a;
 	if ((*stack_a)->next)
 	{
@@ -88,6 +82,6 @@ void	push_b(t_list **stack_a, t_list **stack_b)
 	first_b->next = *stack_b;
 	*stack_b = first_b;
 	increment_index(*stack_b);
-	if(write(1, "pb\n", 3) == -1)
+	if (write(1, "pb\n", 3) == -1)
 		exit(1);
 }

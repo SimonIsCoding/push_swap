@@ -6,11 +6,11 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:47:44 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/02 19:26:31 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:15:37 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -42,4 +42,64 @@ long int	ft_atol(const char *str)
 	while (str[i] >= 48 && str[i] <= 57)
 		a = a * 10 + (str[i++] - 48);
 	return (a * sign);
+}
+
+char	*ft_strdup(const char *str)
+{
+	char	*dst;
+	size_t	i;
+
+	i = -1;
+	dst = (char *)malloc((ft_strlen(str) + 1) * sizeof(char));
+	if (!dst)
+		return (NULL);
+	while (str[++i] != '\0')
+		dst[i] = str[i];
+	dst[i] = '\0';
+	return (dst);
+}
+
+size_t	itoa_helper(long num)
+{
+	size_t	ctr;
+
+	ctr = 0;
+	while (num < 0)
+	{
+		num *= -1;
+		ctr++;
+	}
+	while (num > 0)
+	{
+		num /= 10;
+		ctr++;
+	}
+	return (ctr);
+}
+
+char	*ft_itoa(long int n)
+{
+	char	*str;
+	long	tmp;
+	size_t	len;
+
+	tmp = n;
+	len = itoa_helper(tmp);
+	if (n == 0)
+		return (ft_strdup("0"));
+	str = malloc((len + 1) * (sizeof(char)));
+	if (!str)
+		return (NULL);
+	str[len--] = '\0';
+	if (tmp < 0)
+	{
+		tmp *= -1;
+		str[0] = '-';
+	}
+	while (tmp > 0)
+	{
+		str[len--] = (tmp % 10) + '0';
+		tmp /= 10;
+	}
+	return (str);
 }

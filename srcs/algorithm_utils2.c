@@ -6,11 +6,11 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:44:45 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/10 09:45:21 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:14:27 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 //what is the single_cost ?
 //this is the movement we need to put the current node at the top of the stack
@@ -28,23 +28,11 @@ void	rate_single_cost(t_list *stack)
 	median = lstsize / 2;
 	while (stack)
 	{
-//		if (lstsize % 2 == 0)
-//		{
-			if (stack->index < median)
-				stack->single_cost = stack->index;
-			else
-				stack->single_cost = stack->index - lstsize;
-//		}
-/*		else
-		{
-			if (stack->index < (median + 1))
-			{
-				stack->single_cost = stack->index;
-			}
-			else
-				stack->single_cost = stack->index - lstsize ;
-		}
-*/		stack = stack->next;
+		if (stack->index < median)
+			stack->single_cost = stack->index;
+		else
+			stack->single_cost = stack->index - lstsize;
+		stack = stack->next;
 	}
 }
 

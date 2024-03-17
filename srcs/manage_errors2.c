@@ -6,11 +6,36 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:42:20 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/03 12:30:21 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/13 19:24:56 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
+
+//we want to create a function that write error for this nb 18446744073709551615
+void	check_u_long_max(char **argv)
+{
+	int	is_zero;
+	int	i;
+	int	j;
+
+	i = 1;
+	is_zero = 0;
+	while (argv[i])
+	{
+		j = 0;
+		while (argv[i][j] == '0')
+		{
+			j++;
+			is_zero++;
+		}
+		while (argv[i][j])
+			j++;
+		if (j - is_zero > 11)
+			return (write_error(), exit(1));
+		i++;
+	}
+}
 
 void	check_if_int(t_list *lst)
 {
@@ -20,9 +45,7 @@ void	check_if_int(t_list *lst)
 	while (tmp != NULL)
 	{
 		if (tmp->nb > 2147483647 || tmp->nb < -2147483648)
-		{
 			return (ft_lstclear(&lst), lst = NULL, write_error(), exit(1));
-		}
 		tmp = tmp->next;
 	}
 }
@@ -42,13 +65,8 @@ void	manage_error(int argc, char **argv)
 		exit(1);
 	two_same_numbers(stack_a);
 	check_if_int(stack_a);
-//	sorted_check(stack_a);
+	check_u_long_max(argv);
 	if (sorted_check(stack_a) == 1)
-	{
-		//I don't understand why I don't have leaks here. I should have it
-		//I should free the list here to avoid leaks before exit.
-		//but I don't have leaks
 		exit(0);
-	}
 	ft_lstclear(&stack_a);
 }

@@ -6,11 +6,11 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 14:06:14 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/03 11:58:53 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:17:51 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 //We need a function for counting the words
 //We need a function to draw our matrix with the good numbers of cells
