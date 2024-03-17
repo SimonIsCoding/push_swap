@@ -17,7 +17,7 @@ void	sort_2_numbers(t_list **lst)
 	swap_a(lst);
 }
 
-//we have to suppose that the numbers are not sorted
+//Supposing that the numbers are not sorted
 //this functions will sort 3 numbers in ascending order
 void	sort_3_numbers(t_list **lst)
 {

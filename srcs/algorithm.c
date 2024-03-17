@@ -12,8 +12,8 @@
 
 #include "../inc/push_swap.h"
 
-//when every node will be sorted, we will need a function to move the smalles
-//at the top
+//when every node will be sorted, we will need a function to move the smallest
+//at the top.
 static void	move_min_at_top(t_list **stack_a)
 {
 	t_list	*min_node;
@@ -30,7 +30,7 @@ static void	move_min_at_top(t_list **stack_a)
 	}
 }
 
-//we want a function that do rrr or rr if needed instead of doing rra & rrb
+//we want a function that do rrr or rr instead of doing rra&rrb or ra&rb
 static void	save_movement(t_list **stack_a, t_list **stack_b, t_list *min_pc)
 {
 	int	mid_stk_a;
