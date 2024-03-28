@@ -6,7 +6,7 @@
 #    By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 20:04:24 by simarcha          #+#    #+#              #
-#    Updated: 2024/03/17 16:25:35 by simarcha         ###   ########.fr        #
+#    Updated: 2024/03/28 16:16:32 by simarcha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ clean:
 			$(RM) $(OBJ)
 
 fclean: 	clean
-			$(RM) $(EXEC) $(NAME)
+			$(RM) $(EXEC)
 
 re: 		fclean all
 
