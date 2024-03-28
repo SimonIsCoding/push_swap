@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:14:06 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/17 20:06:07 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/28 12:00:26 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int			ft_lstsize(t_list *lst);
 void		ft_lstclear(t_list **lst);
 t_list		*ft_lstlast(t_list *lst);
 t_list		*create_list(int argc, char **argv);
+//void		print_list(t_list *stack_a, t_list *stack_b);//to see stack sorted
 
 //Error Management
 int			write_error(void);

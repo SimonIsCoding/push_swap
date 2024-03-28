@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:09:22 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/13 18:14:50 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/28 12:16:13 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,32 +32,32 @@ t_list	*closest_smaller_node(t_list *node_a, t_list *list_b)
 }
 
 // Recursive function to find the target node for the whole stack A
-void	find_target_node_a(t_list *stck_a, t_list *stck_b)
+void	find_target_node_a(t_list *stack_a, t_list *stack_b)
 {
 	t_list	*closest_smaller;
 
-	if (!stck_a)
+	if (!stack_a)
 		return ;
-	closest_smaller = closest_smaller_node(stck_a, stck_b);
+	closest_smaller = closest_smaller_node(stack_a, stack_b);
 	if (!closest_smaller)
-		stck_a->target = max_list_nb(&stck_b);
+		stack_a->target = max_list_nb(&stack_b);
 	else
-		stck_a->target = closest_smaller;
-	find_target_node_a(stck_a->next, stck_b);
+		stack_a->target = closest_smaller;
+	find_target_node_a(stack_a->next, stack_b);
 }
 
 //We want to find the target node for the whole stack B
 //In this case, the target node for stack B is the closest bigger found in stk A
 //if the closest bigger doesn't exist, the target node will be the minimum
 
-t_list	*closest_bigger_node(t_list *node_b, t_list *stack_a)
+t_list	*closest_bigger_node(t_list *stack_b, t_list *stack_a)
 {
 	t_list	*closest_bigger;
 
 	closest_bigger = NULL;
 	while (stack_a)
 	{
-		if (stack_a->nb > node_b->nb
+		if (stack_a->nb > stack_b->nb
 			&& (!closest_bigger || stack_a->nb < closest_bigger->nb))
 			closest_bigger = stack_a;
 		stack_a = stack_a->next;
@@ -66,16 +66,16 @@ t_list	*closest_bigger_node(t_list *node_b, t_list *stack_a)
 }
 
 // Recursive function to find the target node for the whole stack B
-void	find_target_node_b(t_list *stck_b, t_list *stck_a)
+void	find_target_node_b(t_list *stack_b, t_list *stack_a)
 {
 	t_list	*closest_bigger;
 
-	if (!stck_b)
+	if (!stack_b)
 		return ;
-	closest_bigger = closest_bigger_node(stck_b, stck_a);
+	closest_bigger = closest_bigger_node(stack_b, stack_a);
 	if (!closest_bigger)
-		stck_b->target = min_list_nb(&stck_a);
+		stack_b->target = min_list_nb(&stack_a);
 	else
-		stck_b->target = closest_bigger;
-	find_target_node_b(stck_b->next, stck_a);
+		stack_b->target = closest_bigger;
+	find_target_node_b(stack_b->next, stack_a);
 }

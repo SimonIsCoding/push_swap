@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:16:33 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/17 19:54:57 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/03/28 11:59:35 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,3 +83,29 @@ t_list	*ft_lstlast(t_list *lst)
 	}
 	return (NULL);
 }
+/*
+#include <stdio.h>//WATCH OUT YOU USE A FORBIDDEN FUNCTION
+void print_list(t_list *stack_a, t_list *stack_b)
+{
+    while (stack_a != NULL || stack_b != NULL)
+	{
+		if (stack_b && stack_a)
+		{
+			printf("| %li  :  %u |     | %li  :  %u |\n", stack_a->nb,
+					stack_a->index, stack_b->nb, stack_b->index);
+			stack_a = stack_a->next;
+			stack_b = stack_b->next;
+		}
+		else if (stack_a)
+		{
+			printf("| %li  :  %u |\n", stack_a->nb,	stack_a->index);
+			stack_a = stack_a->next;
+		}
+		else if (stack_b)
+		{
+			printf("                | %li  :  %u |\n", stack_b->nb,
+					stack_b->index);
+			stack_b = stack_b->next;
+		}
+    }
+}*/
