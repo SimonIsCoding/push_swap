@@ -31,3 +31,6 @@ Third Step:
 <br>
 
 
+Errors:
+Example: -00000000005 => you have to fix it.
+as well in th bash it might have another error with "- " => check this
