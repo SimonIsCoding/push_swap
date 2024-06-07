@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 13:30:06 by simarcha          #+#    #+#             */
-/*   Updated: 2024/03/17 19:57:57 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/06/07 17:37:46 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,11 @@ static void	swap(t_list **lst)
 {
 	t_list	*first;
 	t_list	*second;
-	t_list	*tmp;
 
 	if (*lst == NULL || (*lst)->next == NULL)
 		return ;
 	first = *lst;
 	second = (*lst)->next;
-	tmp = first;
 	first->next = second->next;
 	second->next = first;
 	first->index++;
