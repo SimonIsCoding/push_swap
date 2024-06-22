@@ -1,5 +1,5 @@
 > [!NOTE]
-> Useful information that users should know, even when skimming content.In this project, the subject was not very clear about the input numbers. So I considered that if the number was positive, the user had to write it without any sign '+'. Like in the examples given. Otherwise, the program send 'Error'. Just like when we communicate. If I'm 21, I say I'm 21, not +21.
+> .In this project, the subject was not very clear about the input numbers. So I considered that if the number was positive, the user had to write it without any sign '+'. Like in the examples given. Otherwise, the program send 'Error'. Just like when we communicate. If I'm 21, I say I'm 21, not +21.
 
 <b>push_swap Roadmap:<br>
 First step:<br>
