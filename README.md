@@ -1,4 +1,32 @@
-<u>I <font color=red>tn this project, the subject was not very clear about the input numbers. So I considered that if the number was positive, the user had to write it without any sign '+'. Like in the examples given. Otherwise, the program send 'Error'. Just like when we communicate. If I'm 21, I say I'm 21, not +21.</u></font><br>
+<style>
+.warning {
+  background-color: #EFEFEF;
+  border: 3px solid #444;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.warning::before {
+  content: "WARNING";
+  background: #FFEEAA;
+  width: 7.5rem;
+  border-right: 3px solid #444;
+  border-bottom: 3px solid #444;
+  display: block;
+  text-align: center;
+  position: relative;
+  left: -1rem;
+  top: -1rem;
+  padding: 2px 10px;
+  font-weight: bold;
+}
+</style>
+
+<div class="warning">
+In this project, the subject was not very clear about the input numbers. So I considered that if the number was positive, the user had to write it without any sign '+'. Like in the examples given. Otherwise, the program send 'Error'. Just like when we communicate. If I'm 21, I say I'm 21, not +21.</div>
+
+
+<u><font color=red>In this project, the subject was not very clear about the input numbers. So I considered that if the number was positive, the user had to write it without any sign '+'. Like in the examples given. Otherwise, the program send 'Error'. Just like when we communicate. If I'm 21, I say I'm 21, not +21.</u></font><br>
 <b>push_swap Roadmap:<br>
 First step:<br>
     - Error Management:<br>
