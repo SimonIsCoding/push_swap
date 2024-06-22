@@ -24,6 +24,8 @@ void	check_u_long_max(char **argv)
 	while (argv[i])
 	{
 		j = 0;
+		if (argv[i][j] == '-')
+			j++;
 		while (argv[i][j] == '0')
 		{
 			j++;

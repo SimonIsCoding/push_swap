@@ -1,3 +1,4 @@
+<u>I <font color=red>tn this project, the subject was not very clear about the input numbers. So I considered that if the number was positive, the user had to write it without any sign '+'. Like in the examples given. Otherwise, the program send 'Error'. Just like when we communicate. If I'm 21, I say I'm 21, not +21.</u></font><br>
 <b>push_swap Roadmap:<br>
 First step:<br>
     - Error Management:<br>
@@ -30,7 +31,3 @@ Third Step:
                 - Create the function to move the minimal number at the top of the stack (see move_min_at_top function in algorithm.c)<br>
 <br>
 
-
-Errors:
-Example: -00000000005 => you have to fix it.
-as well in th bash it might have another error with "- " => check this
