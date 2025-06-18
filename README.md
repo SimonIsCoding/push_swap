@@ -246,7 +246,7 @@ B:8 (target A:1 - minimum, since 8 > all numbers in A):
 - Total push_cost = 1 + 0 = 1 operation
 
 Choose B:4 (lowest push_cost = 1)
-*We could have choose also B:3 and B:8, but I take the one that comes first - This could be + optimized*
+- We could have choose also B:3 and B:8, but I take the one that comes first - This could be + optimized.
 Push B:4 to A:
 - We execute the 1 operation previously calculated, which is Rotate A. Now the node 1 is at the bottom of the stack A. We can execute the push operation (from B to A) because the node and his target are at to the top of their respectives stacks.
 Stack A: 4 6 7 1
@@ -299,7 +299,7 @@ The stack is now sorted in ascending order!
 This algorithm achieves excellent performance:
 - **100 numbers**: ≤ 700 operations
 - **500 numbers**: ≤ 5500 operations
-- **1000+ numbers**: Efficient scaling
+- **1000+ numbers**: The Radix algorithm might be + efficient. But the subject just ask to manage to maximum 500 numbers.
 
 The key to efficiency is always choosing the node with the **minimum push_cost**, ensuring optimal movement patterns and minimizing total operations.
 
@@ -360,7 +360,7 @@ The main algorithm is inspired by the concept of finding the optimal movement fo
 
 For a deeper understanding of the push_swap algorithm and optimization strategies:
 
-- **[Push Swap Algorithm Explained](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)** - A comprehensive Medium article explaining the cost-based optimization approach
+- **[Push Swap Algorithm Explained](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)** - A comprehensive Medium article explaining the cost-based optimization approach - This doesn't explain the same algorithm. But it was inspired. The article doesn't use the median value for example. But it helps to understand the target node.
 - **[Push Swap Visualization](https://www.youtube.com/watch?v=wRvipSG4Mmk)** - YouTube video demonstrating the algorithm in action with visual examples
 
 ## 🤝 Contributing
