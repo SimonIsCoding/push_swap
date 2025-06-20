@@ -11,8 +11,9 @@ Push Swap is a project that implements an efficient sorting algorithm using two 
 <div align=center>
 </div>
  <video width="320" height="240" controls>
-  <source src="https://github.com/SimonIsCoding/utils_and_random/blob/main/Push_swap_result.gif">
+  <img src="https://github.com/SimonIsCoding/utils_and_random/blob/main/Push_swap_result.gif">
 </video>
+
 
 ## 🎯 Problem Statement
 
