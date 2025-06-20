@@ -9,10 +9,8 @@ Push Swap is a project that implements an efficient sorting algorithm using two 
 ## 🏁 Result
 
 <div align=center>
-</div>
- <video width="320" height="240" controls>
   <img src="https://github.com/SimonIsCoding/utils_and_random/blob/main/Push_swap_result.gif">
-</video>
+</div>
 
 
 ## 🎯 Problem Statement
