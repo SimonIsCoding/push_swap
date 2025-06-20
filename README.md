@@ -78,7 +78,7 @@ typedef struct s_list
 
 ### 3. Sorting Algorithms
 > [!NOTE]
-> Once you have understood the concepts of the target node, the median and the push cost, you can built the algorithm.
+> Once you have understood the concepts of **the target node**, **the median** and **the push cost**, you can build the algorithm.
 > These concepts are explained below.
 
 #### Small Stacks (2-3 numbers)
