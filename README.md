@@ -6,6 +6,10 @@ A sorting algorithm implementation that sorts a stack of integers using a limite
 
 Push Swap is a project that implements an efficient sorting algorithm using two stacks (A and B) and a limited set of operations. The goal is to sort a sequence of integers using the minimum number of operations possible.
 
+## 🏁 Result
+
+https://github.com/SimonIsCoding/utils_and_random/blob/main/Push_swap_result.gif
+
 ## 🎯 Problem Statement
 
 Given a stack A containing a sequence of integers, sort them in ascending order using only the following operations:
@@ -73,6 +77,9 @@ typedef struct s_list
 - **Push Operations**: `pa`, `pb` - Move top element between stacks
 
 ### 3. Sorting Algorithms
+> [!NOTE]
+> Once you have understood the concepts of the target node, the median and the push cost, you can built the algorithm.
+> These concepts are explained below.
 
 #### Small Stacks (2-3 numbers)
 - **2 numbers**: Simple swap if needed
